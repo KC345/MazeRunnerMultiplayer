@@ -44,6 +44,8 @@ public class Menue implements ActionListener{
         frame.add(buttonPannel);
         frame.setLayout(null);
         frame.setSize(705,705);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +62,8 @@ public class Menue implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource()== solo){
-
+            new Singleplayer();
+            frame.dispose();
         }
 
         if (e.getSource()==multi){

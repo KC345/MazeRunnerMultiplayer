@@ -45,6 +45,8 @@ public class ShowControls implements ActionListener {
         gridpanel.add(txtpanel);
 
         controlframe.setSize(725,1000);
+        controlframe.pack();
+        controlframe.setLocationRelativeTo(null);
         controlframe.setVisible(true);
         controlframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
