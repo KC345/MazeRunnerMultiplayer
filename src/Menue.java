@@ -29,9 +29,7 @@ public class Menue {
         // picLabel.setLayout(new FlowLayout());
        // picLabel.setBounds(700, 700,400,100);
 
-       // solo.setBounds(200,0,50,50);
-        //multi.setBounds(200,50,50,50);
-        //cont.setBounds(200,100,50,50);
+
         solo.setVisible(true);
         multi.setVisible(true);
         cont.setVisible(true);
