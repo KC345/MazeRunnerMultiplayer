@@ -1,15 +1,15 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 
-public class Menue {
+public class Menue implements ActionListener{
 
     JFrame frame = new JFrame("Maze Runner Multiplayer");
-    JLabel picLabel;
     JPanel buttonPannel = new JPanel();
     JButton solo = new JButton("Einzelspieler");
     JButton multi = new JButton("Multiplayer");
@@ -17,23 +17,16 @@ public class Menue {
 
     public Menue(){
 
-
-
         BufferedImage myPicture = null;
         try {
             myPicture = ImageIO.read(new File("src/Maze_Background.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-       // picLabel = new JLabel(new ImageIcon(myPicture));
-        // picLabel.setLayout(new FlowLayout());
-       // picLabel.setBounds(700, 700,400,100);
-
 
         solo.setVisible(true);
         multi.setVisible(true);
         cont.setVisible(true);
-        //buttonPannel.add(picLabel);
 
         buttonPannel.add(solo);
         buttonPannel.add(multi);
@@ -43,9 +36,10 @@ public class Menue {
         buttonPannel.setVisible(true);
         buttonPannel.setBackground(new Color(0f,0f,0f,0));
 
+        solo.addActionListener(this);
+        multi.addActionListener(this);
+        cont.addActionListener(this);
 
-
-        //frame.add(picLabel);
         frame.setContentPane(new JLabel(new ImageIcon(myPicture)));
         frame.add(buttonPannel);
         frame.setLayout(null);
@@ -60,5 +54,22 @@ public class Menue {
 
     public static void main(String [] args){
         new Menue();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource()== solo){
+
+        }
+
+        if (e.getSource()==multi){
+
+        }
+
+        if (e.getSource()==cont){
+            new ShowControls();
+            frame.dispose();
+        }
     }
 }
