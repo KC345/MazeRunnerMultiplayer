@@ -11,6 +11,8 @@ public class Multiplayer {
         multiframe.pack();
         multiframe.setLocationRelativeTo(null);
         multiframe.setVisible(true);
+        multiframe.setSize(705,705);
+        multiframe.setResizable(false);
         multiframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

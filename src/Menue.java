@@ -44,6 +44,7 @@ public class Menue implements ActionListener{
         frame.add(buttonPannel);
         frame.setLayout(null);
         frame.setSize(705,705);
+        frame.setResizable(false);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
