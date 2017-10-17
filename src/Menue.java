@@ -68,7 +68,8 @@ public class Menue implements ActionListener{
         }
 
         if (e.getSource()==multi){
-
+            new Multiplayer();
+            frame.dispose();
         }
 
         if (e.getSource()==cont){
