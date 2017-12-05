@@ -1,15 +1,3 @@
-// DisjSets class
-//
-// CONSTRUCTION: with int representing initial number of sets
-//
-// ******************PUBLIC OPERATIONS*********************
-// void union( root1, root2 ) --> Merge two sets
-// int find( x )              --> Return set containing x
-// ******************ERRORS********************************
-// No error checking is performed
-
-// Added a allConnected() method to check if all elements are in
-// same set
 
 /**
  * Disjoint set class, using union by rank and path compression.

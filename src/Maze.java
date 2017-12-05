@@ -81,7 +81,7 @@ public class Maze
         DisjSets ds = new DisjSets(NumElements); // Erstellt einen Disjunkt um Zellen zu repräsentieren.
         for (int k = 0; k < N * N; k++)
         {
-            ds.find(k); // Fügt jede Zelle zu einem eigenen Set hinzu 
+            ds.find(k); // Fügt jede Zelle zu einem eigenen Set hinzu
         }
 
         Random generator = new Random();
