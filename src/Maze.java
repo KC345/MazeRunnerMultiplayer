@@ -40,7 +40,7 @@ public class Maze
     final int EAST = 2 ;
     final int WEST = 3 ;
 
-    public void makeWalls() // füllt die wand informatationen in die Zellen, -1 stellt eine Außenwand dar f
+    public void makeWalls() // füllt die wand informatationen in die Zellen, -1 stellt eine Außenwand dar.
     {
         for (int i = 0; i < N * N; i++) // nördliche, südliche, östliche und westliche wände festlegen
         {
@@ -60,7 +60,6 @@ public class Maze
         for (int i = 0; i < N * N; i += N)
         {
             cells[N * N - i - 1].walls[EAST] = -1; // Grenze im Osten setzten, östlicher wall auf -1
-            // wall to -1
             cells[i].walls[WEST] = -1; // Grenze im Westen setzten, westlicher wall auf -1
         }
     }
