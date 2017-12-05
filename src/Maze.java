@@ -81,12 +81,11 @@ public class Maze
         DisjSets ds = new DisjSets(NumElements); // Erstellt einen Disjunkt um Zellen zu repräsentieren.
         for (int k = 0; k < N * N; k++)
         {
-            ds.find(k); // adds each cell to a single set
+            ds.find(k); // Fügt jede Zelle zu einem eigenen Set hinzu 
         }
 
         Random generator = new Random();
-        while (ds.allConnected() == false) // while not all the elements in the
-        // set are connected
+        while (ds.allConnected() == false) // Wird ausgeführt wenn nicht alle elemente im Set verbunden sind
         {
             int cell1 = generator.nextInt(N * N); // zufällige zelle auswählen
             int wall = generator.nextInt(4);
@@ -95,8 +94,7 @@ public class Maze
 
             if (cell2 != -1 && cell2 != N * N) // überprüfen ob zwischen den zwei zellen eine Wand existiert
             {
-                if (ds.find(cell1) != ds.find(cell2)) // if cells do not belong to
-                // the same set
+                if (ds.find(cell1) != ds.find(cell2)) // Wenn die Zellen nicht zum selben Set gehören
                 {
                     cells[cell1].walls[wall] = N * N; // Zerstört die Wand zwischen diesen 2 Zellen,  N*N repräsentiert keine Wand
 
