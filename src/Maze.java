@@ -1,11 +1,3 @@
-/*
- * Maze.java
- * Author: Irene Alvarado
- * Maze object that creates a maze using a
- * disjoint set representing cells and running a modified version of Kruskal's
- * algorithm to remove walls. In the end, the maze walls are drawn as well as a
- * unique path in red dots.
- */
 import java.awt.*;
 import java.util.Random;
 
@@ -15,8 +7,6 @@ public class Maze
     public static final int MARGIN = 50; // buffer zwischen Maze und Window
     private int N;
     private Cell[] cells; // Array das alle Zellen im Maze enthält
-
-
     public Maze(int n)
     {
         N = n;
@@ -66,6 +56,7 @@ public class Maze
             cells[N * N - i - 1].walls[SOUTH] = -1; // Grenze im Süden setzten, südlicher wall auf -1
             // wall to -1
         }
+
         for (int i = 0; i < N * N; i += N)
         {
             cells[N * N - i - 1].walls[EAST] = -1; // Grenze im Osten setzten, östlicher wall auf -1
