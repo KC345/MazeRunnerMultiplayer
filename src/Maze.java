@@ -31,20 +31,17 @@ public class Maze
         {
             makeWalls(); // Updated die Wand informationen innerhalb eines Zellen Objekts.
             clearWalls(); // Entfernt eine Wand solange bis ein Maze geformt ist.
-            
+
         }
     }
 
     public class Cell // Klasse die eine Zelle in einem Maze represäntiert.
     {
         int[] walls; // Array das die nördlichen, südlichen, östlichen und westlichen Wände beinhaltet
-        int visitedBy; // for running first breath search, saves the cell that
-        // visited this cell
 
         public Cell()
         {
             walls = new int[4];
-            visitedBy = -1;
         }
     }
 
@@ -53,10 +50,9 @@ public class Maze
     final int EAST = 2 ;
     final int WEST = 3 ;
 
-    public void makeWalls() // fills wall information in Cells, -1 represents a
-    // border wall
+    public void makeWalls() // füllt die wand informatationen in die Zellen, -1 stellt eine Außenwand dar f
     {
-        for (int i = 0; i < N * N; i++) // set north,south,east,west walls
+        for (int i = 0; i < N * N; i++) // nördliche, südliche, östliche und westliche wände festlegen
         {
             cells[i].walls[NORTH] = i - N;
             cells[i].walls[SOUTH] = i + N;
@@ -66,25 +62,23 @@ public class Maze
 
         for (int i = 0; i < N; i++)
         {
-            cells[i].walls[NORTH] = -1; // set in border north cells, north wall to -1
-            cells[N * N - i - 1].walls[SOUTH] = -1; // set in border south cells, south
+            cells[i].walls[NORTH] = -1; // Grenze im Norden setzten, nördlicher wall auf -1
+            cells[N * N - i - 1].walls[SOUTH] = -1; // Grenze im Süden setzten, südlicher wall auf -1
             // wall to -1
         }
         for (int i = 0; i < N * N; i += N)
         {
-            cells[N * N - i - 1].walls[EAST] = -1; // set in border east cells, east
+            cells[N * N - i - 1].walls[EAST] = -1; // Grenze im Osten setzten, östlicher wall auf -1
             // wall to -1
-            cells[i].walls[WEST] = -1; // set in border west cells, west wall to -1
+            cells[i].walls[WEST] = -1; // Grenze im Westen setzten, westlicher wall auf -1
         }
     }
 
-    public void clearWalls() // destroys walls with a modified version of
-    // Kruskal's algorithm
+    public void clearWalls() // Methode um Wände zu zerstören (um ein Maze zu formen)
     {
         int NumElements = N * N;
 
-        DisjSets ds = new DisjSets(NumElements); // creates a disjoint set to
-        // represent cells
+        DisjSets ds = new DisjSets(NumElements); // Erstellt einen Disjunkt um Zellen zu repräsentieren.
         for (int k = 0; k < N * N; k++)
         {
             ds.find(k); // adds each cell to a single set
@@ -94,13 +88,12 @@ public class Maze
         while (ds.allConnected() == false) // while not all the elements in the
         // set are connected
         {
-            int cell1 = generator.nextInt(N * N); // pick a random cell
+            int cell1 = generator.nextInt(N * N); // zufällige zelle auswählen
             int wall = generator.nextInt(4);
 
-            int cell2 = cells[cell1].walls[wall]; // pick a second random cell
+            int cell2 = cells[cell1].walls[wall]; // zweite zufällige zelle auswählen
 
-            if (cell2 != -1 && cell2 != N * N) // if there exists a wall between
-            // these two cells
+            if (cell2 != -1 && cell2 != N * N) // überprüfen ob zwischen den zwei zellen eine Wand existiert
             {
                 if (ds.find(cell1) != ds.find(cell2)) // if cells do not belong to
                 // the same set
@@ -116,9 +109,7 @@ public class Maze
                         cells[cell2].walls[wall - 1] = N * N;
                     }
 
-                    ds.union(ds.find(cell1), ds.find(cell2)); // make a union of the
-                    // set of these two cells, through which a path has just been
-                    // created
+
                 }
             }
         }
