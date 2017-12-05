@@ -11,33 +11,33 @@ import java.util.Random;
 
 public class Maze
 {
-    public static final int CELL_WIDTH = 20; // maze square size
-    public static final int MARGIN = 50; // buffer between window edge and maze
+    public static final int CELL_WIDTH = 20; // Maze groeße
+    public static final int MARGIN = 50; // buffer zwischen Maze und Window
     private int N;
-    private Cell[] cells; // array containing all the cells in the maze
+    private Cell[] cells; // Array das alle Zellen im Maze enthält
 
 
     public Maze(int n)
     {
         N = n;
-        cells = new Cell[N * N]; // creates array of Cells
+        cells = new Cell[N * N]; // generiert das Array der Zellen
 
-        for (int i = 0; i < N * N; i++) // initializes array with Cell objects
+        for (int i = 0; i < N * N; i++) // Array mit Zellen intialisieren
         {
             cells[i] = new Cell();
         }
 
         if(N > 0)
         {
-            makeWalls(); // updates wall information inside each Cell object
-            clearWalls(); // destoys wall until a maze is formed
+            makeWalls(); // Updated die Wand informationen innerhalb eines Zellen Objekts.
+            clearWalls(); // Entfernt eine Wand solange bis ein Maze geformt ist.
             
         }
     }
 
-    public class Cell // Class representing a cell in a maze.
+    public class Cell // Klasse die eine Zelle in einem Maze represäntiert.
     {
-        int[] walls; // array representing north, south, east, west walls
+        int[] walls; // Array das die nördlichen, südlichen, östlichen und westlichen Wände beinhaltet
         int visitedBy; // for running first breath search, saves the cell that
         // visited this cell
 
@@ -105,9 +105,7 @@ public class Maze
                 if (ds.find(cell1) != ds.find(cell2)) // if cells do not belong to
                 // the same set
                 {
-                    cells[cell1].walls[wall] = N * N; // destroy the wall between
-                    // these two cells. N*N will
-                    // represent no wall
+                    cells[cell1].walls[wall] = N * N; // Zerstört die Wand zwischen diesen 2 Zellen,  N*N repräsentiert keine Wand
 
                     if (wall == NORTH || wall == EAST)
                     {
@@ -126,7 +124,7 @@ public class Maze
         }
     }
 
-    public void draw(Graphics g) // draws a maze and its solution
+    public void draw(Graphics g) // Zeichnet das Maze
     {
         g.setColor(Color.BLACK);
 
@@ -140,31 +138,27 @@ public class Maze
                     count += N;
                 }
 
-                if (cells[count].walls[NORTH] != N * N) // if there exists a wall to the
-                // north
+                if (cells[count].walls[NORTH] != N * N) // Abfrage ob im Norden eine Wand existiert
                 {
                     g.drawLine((i * CELL_WIDTH + MARGIN), (j * CELL_WIDTH + MARGIN),
                             ((i + 1) * CELL_WIDTH + MARGIN), (j * CELL_WIDTH + MARGIN));
                 }
 
-                if (cells[count].walls[SOUTH] != N * N) // if there exists a wall to the
-                // south
+                if (cells[count].walls[SOUTH] != N * N) // Abfrage ob im Süden eine Wand existiert
                 {
                     g.drawLine(i * CELL_WIDTH + MARGIN, (j + 1) * CELL_WIDTH
                             + MARGIN, (i + 1) * CELL_WIDTH + MARGIN, (j + 1) * CELL_WIDTH
                             + MARGIN);
                 }
 
-                if (cells[count].walls[EAST] != N * N) // if there exists a wall to the
-                // east
+                if (cells[count].walls[EAST] != N * N) // Abfrage ob im Osten eine Wand existiert
                 {
                     g.drawLine((i + 1) * CELL_WIDTH + MARGIN, j * CELL_WIDTH
                             + MARGIN, (i + 1) * CELL_WIDTH + MARGIN, (j + 1) * CELL_WIDTH
                             + MARGIN);
                 }
 
-                if (cells[count].walls[WEST] != N * N) // if there exists a wall to the
-                // west
+                if (cells[count].walls[WEST] != N * N) // Abfrage ob im Westen eine Wand existiert
                 {
                     g.drawLine(i * CELL_WIDTH + MARGIN, j * CELL_WIDTH + MARGIN, i
                             * CELL_WIDTH + MARGIN, (j + 1) * CELL_WIDTH + MARGIN);

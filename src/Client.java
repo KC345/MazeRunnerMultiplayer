@@ -1,3 +1,8 @@
+import oracle.jrockit.jfr.JFR;
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -10,6 +15,7 @@ public class Client
 {
     public static void main(String[] args) throws Exception
     {
+
         Socket socket = new Socket("127.0.0.1", 4000);
         BufferedWriter writerChannel = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         BufferedReader readerChannel = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -22,5 +28,8 @@ public class Client
         {
             System.out.println(line);
         }
+
+
+
     }
 }
