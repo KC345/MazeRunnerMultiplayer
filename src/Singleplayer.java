@@ -15,10 +15,10 @@ public class Singleplayer {
 
         singleframe.add(playfield);
         singleframe.pack();
-        singleframe.setLocationRelativeTo(null);
         singleframe.setVisible(true);
         singleframe.setSize(500,550);
         singleframe.setResizable(false);
+        singleframe.setLocationRelativeTo(null);
         singleframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
