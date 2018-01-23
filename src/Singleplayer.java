@@ -1,9 +1,11 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Singleplayer {
 
     JFrame singleframe;
     MazePanel playfield;
+
 
     public Singleplayer(){
 
@@ -13,6 +15,8 @@ public class Singleplayer {
         Maze maze = new Maze(size);
         playfield = new MazePanel(maze);
 
+        
+
         singleframe.add(playfield);
         singleframe.pack();
         singleframe.setVisible(true);
@@ -21,4 +25,14 @@ public class Singleplayer {
         singleframe.setLocationRelativeTo(null);
         singleframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
+
+
+    public void paintComponent(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawOval(5, 5, 1000, 1000);
+        g2d.setColor(Color.red);
+        singleframe.paint(g2d);
+        singleframe.repaint();
+        }
 }
+
