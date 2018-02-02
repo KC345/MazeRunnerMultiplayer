@@ -15,8 +15,6 @@ public class Singleplayer {
         Maze maze = new Maze(size);
         playfield = new MazePanel(maze);
 
-        
-
         singleframe.add(playfield);
         singleframe.pack();
         singleframe.setVisible(true);
@@ -28,11 +26,11 @@ public class Singleplayer {
 
 
     public void paintComponent(Graphics g) {
+        playfield.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawOval(5, 5, 1000, 1000);
         g2d.setColor(Color.red);
-        singleframe.paint(g2d);
-        singleframe.repaint();
+        playfield.repaint();
         }
 }
 

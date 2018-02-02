@@ -35,7 +35,8 @@ public class Menue implements ActionListener{
         buttonPannel.setBounds(150, 250,400,150);
         buttonPannel.setVisible(true);
         buttonPannel.setBackground(new Color(0f,0f,0f,0));
-        
+
+
         solo.addActionListener(this);
         multi.addActionListener(this);
         cont.addActionListener(this);
