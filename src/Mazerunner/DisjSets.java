@@ -1,15 +1,14 @@
 package Mazerunner;
 
 /**
- * Disjoint set class, using union by rank and path compression.
- * Elements in the set are numbered starting at 0.
- * @author Mark Allen Weiss
+ * Disjoint set Klasse benutzt union by rank und Pfad kompression.
+ * Elemente in den sets beginnen mit 0.
  */
 public class DisjSets
 {
     /**
-     * Construct the disjoint sets object.
-     * @param numElements the initial number of disjoint sets.
+     * Konstruktor der benötigten Objekte
+     * @param numElements nummer der disjoint sets
      */
     public DisjSets( int numElements )
     {
@@ -19,29 +18,26 @@ public class DisjSets
     }
 
     /**
-     * Union two disjoint sets using the height heuristic.
-     * For simplicity, we assume root1 and root2 are distinct
-     * and represent set names.
-     * @param root1 the root of set 1.
-     * @param root2 the root of set 2.
+     * Vereinige zwei disjoint sets mit der Höhenheuristik.
+     * @param root1 Wurzel von set 1.
+     * @param root2 Wurzel von set 2.
      */
     public void union( int root1, int root2 )
     {
-        if( s[ root2 ] < s[ root1 ] )  // root2 is deeper
-            s[ root1 ] = root2;        // Make root2 new root
+        if( s[ root2 ] < s[ root1 ] )  // root2 ist tiefer
+            s[ root1 ] = root2;        // root2 zur neuen Wurzel machen
         else
         {
             if( s[ root1 ] == s[ root2 ] )
-                s[ root1 ]--;          // Update height if same
-            s[ root2 ] = root1;        // Make root1 new root
+                s[ root1 ]--;          // Update von height wenn gleich
+            s[ root2 ] = root1;        // root1 neue Wurzel
         }
     }
 
     /**
-     * Perform a find with path compression.
-     * Error checks omitted again for simplicity.
-     * @param x the element being searched for.
-     * @return the set containing x.
+     * Suche mit Pfadkomprimierung.
+     * @param x Element nach dem gesucht wird.
+     * @return das set welches x enthält.
      */
     public int find( int x )
     {
@@ -54,9 +50,8 @@ public class DisjSets
     public int [ ] s;
 
     /**
-     * Check if all elements are in the same set
-     *
-     * @return true if all elements are in same set, false otherwise
+     *Prüfen ob alle Elemente im selben set sind
+     * @return true wenn ja, false wenn nicht der Fall
      */
     public boolean allConnected()
     {
