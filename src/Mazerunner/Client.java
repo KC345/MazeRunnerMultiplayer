@@ -1,3 +1,5 @@
+package Mazerunner;
+
 import oracle.jrockit.jfr.JFR;
 
 import javax.swing.*;
