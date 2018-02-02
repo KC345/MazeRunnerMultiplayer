@@ -31,7 +31,9 @@ public class Multiplayer implements ActionListener{
 
 
         client.setVisible(true);
+        client.addActionListener(this);
         server.setVisible(true);
+        server.addActionListener(this);
 
         buttonPannel.add(client);
         buttonPannel.add(server);
@@ -62,6 +64,11 @@ public class Multiplayer implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == back){
                 new Menue();
+                multiframe.dispose();
+            }
+
+            if (e.getSource() == client){
+                new ChooseServer();
                 multiframe.dispose();
             }
         }
