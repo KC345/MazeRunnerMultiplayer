@@ -30,7 +30,7 @@ public class ShowControls implements ActionListener {
 
         BufferedImage controlPicture = null;
         try {
-            controlPicture = ImageIO.read(new File("src/arrowkeys.jpg"));
+            controlPicture = ImageIO.read(new File("src/Mazerunner/arrowkeys.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
