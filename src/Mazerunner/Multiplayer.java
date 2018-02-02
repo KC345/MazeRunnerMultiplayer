@@ -24,7 +24,7 @@ public class Multiplayer implements ActionListener{
 
         BufferedImage myPicture = null;
         try {
-            myPicture = ImageIO.read(new File("src/Maze_Background.jpg"));
+            myPicture = ImageIO.read(new File("src/Mazerunner/Maze_Background.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }

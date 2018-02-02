@@ -16,7 +16,7 @@ class MazePanel extends JPanel {
     {
         super.paintComponent(page);
 
-        setBackground(Color.white); // set preferredSize for JScrollPane
+        setBackground(Color.white);
 
         maze.draw(page);
     }
