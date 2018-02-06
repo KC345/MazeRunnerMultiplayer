@@ -26,13 +26,5 @@ public class Singleplayer {
         singleframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-
-    public void paintComponent(Graphics g) {
-        playfield.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.drawOval(5, 5, 1000, 1000);
-        g2d.setColor(Color.red);
-        playfield.repaint();
-        }
 }
 

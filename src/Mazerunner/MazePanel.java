@@ -19,5 +19,11 @@ class MazePanel extends JPanel {
         setBackground(Color.white);
 
         maze.draw(page);
+
+        Graphics2D g2d = (Graphics2D) page;
+
+        g2d.drawOval(5, 5, 10, 10);
+
+        g2d.setColor(Color.red);
     }
 }
