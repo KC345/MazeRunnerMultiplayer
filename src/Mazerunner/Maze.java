@@ -145,6 +145,9 @@ public class Maze
                     g.drawLine(i * ZELLEN_BREITE + RAND, j * ZELLEN_BREITE + RAND, i
                             * ZELLEN_BREITE + RAND, (j + 1) * ZELLEN_BREITE + RAND);
                 }
+
+                g.drawOval(5, 5, 10, 10);
+
             }
         }
     }
